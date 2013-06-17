@@ -86,6 +86,11 @@ function instLinux ()
 {
   if [ ! $PKG_MANAGER ]; then
     echo "No package manager found!"
+    read -p "Would you like to install from source? [y/n]" answer
+    if [[ $answer = y ]] ; then
+      echo "Installing from source..."
+        .\install_dependencies.sh
+    fi    
     exit 1
   else
     installUtils
